@@ -1,7 +1,9 @@
 package utils
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strings"
 )
 
@@ -11,7 +13,8 @@ func Confirm(question string, def bool) bool {
 ask:
 
 	fmt.Printf("%s ", question)
-	_, err := fmt.Scan(&s)
+	reader := bufio.NewReader(os.Stdin)
+	s, err := reader.ReadString('\n')
 	if err != nil {
 		panic(err)
 	}

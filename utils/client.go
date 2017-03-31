@@ -74,3 +74,11 @@ func UserIsOrg(name string) bool {
 	e, _ := client.Users(url).One()
 	return e.Type == "Organization"
 }
+
+func FormatError(err *octokit.ResponseError) string {
+	str := err.Message + "\n"
+	for _, e := range err.Errors {
+		str += fmt.Sprintf("    - %s: %s\n", e.Field, e.Message)
+	}
+	return str
+}
