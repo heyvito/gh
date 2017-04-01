@@ -13,18 +13,20 @@ func main() {
 	app.Version = "0.1.0"
 	app.Authors = []cli.Author{
 		cli.Author{
-			Name:  `Victor "Vito" Gama`,
+			Name:  "Victor Gama",
 			Email: "hey@vito.io",
 		},
 	}
 	app.HelpName = "gh"
-	app.Usage = "Controls GitHub account through the command line"
+	app.Usage = "Controls GitHub from the command line"
+	app.UsageText = "gh [command]"
 	app.Commands = []cli.Command{
 		commands.NewRepo,
+		commands.RmRepo,
+		commands.RepoList,
+		commands.Collab,
+		commands.Teams,
+		commands.Open,
 	}
-	// fmt.Println(utils.NormalizeRepoName("$hello!"))
-	// fmt.Println(utils.NormalizeRepoName("$hello!.git"))
-	// r := regexp.MustCompile(`(?:([^\/]+)/?)(.*)`)
-	// fmt.Println(r.FindStringSubmatch("d3estudio/bloomzinho"))
 	app.Run(os.Args)
 }

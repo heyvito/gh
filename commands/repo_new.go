@@ -4,24 +4,36 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/octokit/go-octokit/octokit"
 	"github.com/urfave/cli"
 	"github.com/victorgama/gh/utils"
+	"github.com/victorgama/go-octokit/octokit"
 )
 
 var newRepoLogger = utils.Logger.WithExtra("new")
 
+// NewRepo is responsible for creating repositories
 var NewRepo = cli.Command{
-	Name:  "new",
-	Usage: "Creates a new repository",
+	Name:      "new",
+	Usage:     "Creates a new repository",
+	ArgsUsage: "(--private) (--init) (--license LICENSE) (--gitignore LANGUAGE_OR_PLATFORM) [name, ...]",
 	Flags: []cli.Flag{
 		cli.BoolFlag{
 			Name:  "private",
 			Usage: "creates a private repository",
 		},
 		cli.BoolFlag{
-			Name:  "org",
-			Usage: "Indicates that the new repository will be created in a organization",
+			Name:  "init",
+			Usage: "initializes the repository with a commit and empty README",
+		},
+		cli.StringFlag{
+			Name:  "license",
+			Usage: "selects a license template to apply. Use a license name from https://github.com/github/choosealicense.com/tree/gh-pages/_licenses, without the extension (For example, 'mit' or 'mozilla')",
+			Value: "",
+		},
+		cli.StringFlag{
+			Name:  "gitignore",
+			Usage: "selects a gitignore template to apply. Use a language or platform name from https://github.com/github/gitignore withtout the extension (For example, 'Haskell')",
+			Value: "",
 		},
 	},
 	Action: func(c *cli.Context) error {
@@ -37,7 +49,7 @@ var NewRepo = cli.Command{
 		// This first run just ensures all repositories are valid ones.
 		for _, re := range c.Args() {
 			r := utils.RepoURLFromString(re)
-			r.ToURL()
+			r.AutoComplete()
 			if newName, changed := utils.NormalizeRepoName(r.RepoName); changed {
 				fmt.Printf("Your repository will be created as %s/%s\n", r.Username, newName)
 				if !utils.Confirm("Seems okay? [y]/n", true) {
@@ -68,14 +80,18 @@ var NewRepo = cli.Command{
 			}
 
 			repo, res := client.Repositories().Create(&uri, params, octokit.Repository{
-				Name:    re.RepoName,
-				Private: private,
+				Name:              re.RepoName,
+				Private:           private,
+				GitIgnoreTemplate: c.String("gitignore"),
+				LicenseTemplate:   c.String("license"),
 			})
 			if res.HasError() {
 				if err, ok := res.Err.(*octokit.ResponseError); ok {
 					newRepoLogger.Error("%s", utils.FormatError(err))
+					os.Exit(1)
+				} else {
+					panic(err)
 				}
-				os.Exit(1)
 			}
 			newRepoLogger.Success("Created: %s", repo.FullName)
 		}

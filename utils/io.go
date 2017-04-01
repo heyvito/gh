@@ -7,6 +7,7 @@ import (
 	"strings"
 )
 
+// Confirm shows a prompt on the screen and waits for a user response
 func Confirm(question string, def bool) bool {
 	var s string
 
