@@ -1,0 +1,78 @@
+{
+	"ImportPath": "github.com/victorgama/gh",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v75",
+	"Deps": [
+		{
+			"ImportPath": "github.com/fatih/color",
+			"Comment": "v0.2.0",
+			"Rev": "87d4004f2ab62d0d255e0a38f1680aa534549fe3"
+		},
+		{
+			"ImportPath": "github.com/fhs/go-netrc/netrc",
+			"Comment": "v1.0.0",
+			"Rev": "4ffed54ee5c32ebfb1b8c7c72fc90bb08dc3ff43"
+		},
+		{
+			"ImportPath": "github.com/jingweno/go-sawyer",
+			"Rev": "1999ae5763d678f3ce1112cf1fda7c7e9cf2aadf"
+		},
+		{
+			"ImportPath": "github.com/jingweno/go-sawyer/hypermedia",
+			"Rev": "1999ae5763d678f3ce1112cf1fda7c7e9cf2aadf"
+		},
+		{
+			"ImportPath": "github.com/jingweno/go-sawyer/mediaheader",
+			"Rev": "1999ae5763d678f3ce1112cf1fda7c7e9cf2aadf"
+		},
+		{
+			"ImportPath": "github.com/jingweno/go-sawyer/mediatype",
+			"Rev": "1999ae5763d678f3ce1112cf1fda7c7e9cf2aadf"
+		},
+		{
+			"ImportPath": "github.com/jtacoma/uritemplates",
+			"Comment": "v1.0.0",
+			"Rev": "307ae868f90f4ee1b73ebe4596e0394237dacce8"
+		},
+		{
+			"ImportPath": "github.com/logrusorgru/aurora",
+			"Rev": "962a6974312dde57d1f6f5738b4f83e1af9f38a4"
+		},
+		{
+			"ImportPath": "github.com/mattn/go-colorable",
+			"Comment": "v0.0.6-9-gd228849",
+			"Rev": "d228849504861217f796da67fae4f6e347643f15"
+		},
+		{
+			"ImportPath": "github.com/mattn/go-isatty",
+			"Rev": "66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8"
+		},
+		{
+			"ImportPath": "github.com/mattn/go-runewidth",
+			"Comment": "v0.0.1-10-g737072b",
+			"Rev": "737072b4e32b7a5018b4a7125da8d12de90e8045"
+		},
+		{
+			"ImportPath": "github.com/olekukonko/tablewriter",
+			"Rev": "febf2d34b54a69ce7530036c7503b1c9fbfdf0bb"
+		},
+		{
+			"ImportPath": "github.com/urfave/cli",
+			"Comment": "v1.18.0-67-gd53eb99",
+			"Rev": "d53eb991652b1d438abdd34ce4bfa3ef1539108e"
+		},
+		{
+			"ImportPath": "github.com/victorgama/go-octokit/octokit",
+			"Comment": "v0.4.0-369-g6e32e4c",
+			"Rev": "6e32e4c5e18c82d6eaa6af5995a27fdc7d4512fe"
+		},
+		{
+			"ImportPath": "github.com/victorgama/pine",
+			"Rev": "d766c2a5062c51f60b84c8e5b26277538018ee53"
+		},
+		{
+			"ImportPath": "golang.org/x/sys/unix",
+			"Rev": "8f0908ab3b2457e2e15403d3697c9ef5cb4b57a9"
+		}
+	]
+}
