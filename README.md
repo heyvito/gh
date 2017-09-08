@@ -2,7 +2,7 @@
 ##### Control GitHub from your Terminal
 
 <center>
-<img src="https://www.dropbox.com/s/u7m2v5dnpa47uzf/gh.png?dl=1" />
+<img src="https://i.imgur.com/CrakE9o.png" />
 </center>
 
 `gh` is a terminal utility that allows you to use GitHub directly from your terminal.
