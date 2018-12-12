@@ -1,0 +1,12 @@
+{
+    "Success":   "✅",
+    "Warn":      "⚠️",
+    "Error":     "🚨",
+    "Finish":    "🏁",
+    "Terminate": "⛔️",
+    "Spawn":     "✨",
+    "Disk":      "💾",
+    "Timing":    "⏱",
+    "WTF":       "👻",
+    "Info":      "💬"
+}
